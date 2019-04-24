@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/parrot'
+require '../lib/parrot'
 
 class ParrotTest < Minitest::Test
   def test_it_exists
@@ -10,18 +10,21 @@ class ParrotTest < Minitest::Test
   end
 
   def test_it_has_a_name
+
     words = ["Sugar", "Flashy", "Giant", "Whisper"]
     perry = Parrot.new({name: "Perry", known_words: words})
     assert_equal "Perry", perry.name
   end
 
   def test_it_has_a_sound
+
     words = ["Sugar", "Flashy", "Giant", "Whisper"]
     perry = Parrot.new({name: "Perry", known_words: words})
     assert_equal "Squawk!", perry.sound
   end
 
   def test_it_knows_words
+    
     words = ["Sugar", "Flashy", "Giant", "Whisper"]
     perry = Parrot.new({name: "Perry", known_words: words})
     assert_equal ["Sugar", "Flashy", "Giant", "Whisper"], perry.known_words
