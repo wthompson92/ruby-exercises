@@ -33,13 +33,16 @@ class MapPatternTest < Minitest::Test
   def test_3
     numbers = [1, 2, 3, 4, 5]
     doubles = []
+
     numbers.each do |number|
-      # Your Code Here
+      doubles << (number * 2)
     end
+
     assert_equal [2, 4, 6, 8, 10], doubles
   end
 
   def test_4
+
     numbers = {
       one: 1,
       two: 2,
@@ -49,7 +52,7 @@ class MapPatternTest < Minitest::Test
     }
     doubles = {}
     numbers.each do |name, number|
-      # Your Code Here
+      doubles[name] = (number * 2)
     end
     expected = {
       one: 2,
@@ -62,14 +65,17 @@ class MapPatternTest < Minitest::Test
   end
 
   def test_5
+
     numbers = [1, 2, 3, 4, 5]
     squares = []
-    # Your Code Here
-
+      numbers.each do |number|
+        squares << (number * number)
+      end
     assert_equal [1, 4, 9, 16, 25], squares
   end
 
   def test_6
+
     numbers = {
       one: 1,
       two: 2,
@@ -78,8 +84,9 @@ class MapPatternTest < Minitest::Test
       five: 5
     }
     squares = {}
-    # Your Code Here
-
+numbers.each do  |name, number|
+  squares[name] = (number * number)
+end
     expected = {
       one: 1,
       two: 4,
@@ -91,13 +98,17 @@ class MapPatternTest < Minitest::Test
   end
 
   def test_7
-    names = ["alice", "bob", "charlie", "david", "eve"]
-    #Your Code Here
 
+    names = ["alice", "bob", "charlie", "david", "eve"]
+    lengths = []
+      names.each do |name|
+        lengths << name.length
+      end
     assert_equal [5, 3, 7, 5, 3], lengths
   end
 
   def test_8
+
     family = {
       mother: "alice",
       father: "bob",
@@ -105,7 +116,12 @@ class MapPatternTest < Minitest::Test
       uncle: "david",
       sister: "eve"
     }
-    #Your Code Here
+
+    lengths = Hash.new
+
+    family.each do |title, name|
+      lengths[title] = name.length
+    end
 
     expected = {
       mother: 5,
@@ -118,13 +134,18 @@ class MapPatternTest < Minitest::Test
   end
 
   def test_9
+
     names = ["alice", "bob", "charlie", "david", "eve"]
-    #Your Code Here
+    backwards = []
+      names.each do |name|
+        backwards << name.reverse
+      end
 
     assert_equal ["ecila", "bob", "eilrahc", "divad", "eve"], backwards
   end
 
   def test_10
+    
     family = {
       mother: "alice",
       father: "bob",
@@ -132,8 +153,12 @@ class MapPatternTest < Minitest::Test
       uncle: "david",
       sister: "eve"
     }
-    #Your Code Here
-    
+
+    backwards = Hash.new
+
+    family.each do |title, name|
+      backwards[title] = name.reverse
+    end
     expected = {
       mother: "ecila",
       father: "bob",
