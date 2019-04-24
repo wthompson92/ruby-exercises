@@ -4,5 +4,4 @@ class Kangaroo
     @name = name
     @children = children
   end
-
 end
