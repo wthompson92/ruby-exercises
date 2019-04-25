@@ -30,18 +30,18 @@ class MaxAndMinByPatternTest < Minitest::Test
   end
 
   def test_3
-    skip
+
     meals = ["banana", "nuts", "salad", "steak", "cake"]
     shortest_word = meals[0]
     meals.each do |meal|
-      # Your Code Here
+      if meal.length < shortest_word.length
+        shortest_word = meal
     end
-
+end
     assert_equal "nuts", shortest_word
   end
 
   def test_4
-    skip
     meals = {
       breakfast: "banana",
       snack: "nuts",
@@ -51,24 +51,30 @@ class MaxAndMinByPatternTest < Minitest::Test
     }
     shortest_word = meals[meals.keys.first]
     meals.each do |meal, dish|
-      # Your Code Here
+        if meal.length < shortest_word.length
+          shortest_word = dish
+
+      end
     end
 
     assert_equal "nuts", shortest_word
   end
 
   def test_5
-    skip
+
     stats = [3001, 431, 1695, 0.27601, 0.340]
     most_digits = stats[0]
-    # Your Code Here
+    stats.each do |digits|
+      if digits.to_s.length > most_digits.to_s.length
+        most_digits = digits
+      end
+    end
 
     assert_equal 0.27601, most_digits
   end
 
 
   def test_6
-    skip
     stats = {
       games_played: 3001,
       home_runs: 431,
@@ -77,21 +83,29 @@ class MaxAndMinByPatternTest < Minitest::Test
       on_base_percentage: 0.340
     }
     most_digits = stats[stats.keys.first]
-    # Your Code Here
-
+    stats.each do |type, stat|
+        if stat.to_s.length > most_digits.to_s.length
+          most_digits = stat
+        end
+      end
     assert_equal 0.27601, most_digits
   end
 
   def test_7
-    skip
+
     ages = [39, 45, 29, 24, 50]
-    # Your Code Here
+    oldest = ages[0]
+    ages.each do |age|
+      if age > oldest
+        oldest = age
+      end
+    end
 
     assert_equal 50, oldest
   end
 
   def test_8
-    skip
+
     ages = {
       abdi: 39,
       hassan: 45,
@@ -99,24 +113,41 @@ class MaxAndMinByPatternTest < Minitest::Test
       margaret: 24,
       miguel: 50
     }
-    # Your Code Here
+
+    oldest = ages.first
+    ages.each do |pair|
+      if oldest[1] < pair[1]
+        oldest = pair
+end
+    end
+    oldest = {name: oldest[0].to_s, age: oldest[1]}
 
     expected = {name: "miguel", age: 50}
     assert_equal expected, oldest
   end
 
   def test_9
-    skip
+
     programmers = [["katrina", "sandi", "jim", "aaron", "desi"], ["abby", "jon", "susan"]]
-    # Your Code Here
+    fewest_programmers = programmers[0]
+    programmers.each do |size|
+      if size.length < fewest_programmers.length
+        fewest_programmers = size
+    end
+end
 
     assert_equal ["abby", "jon", "susan"], fewest_programmers
   end
 
   def test_10
-    skip
+
     programmers = {ruby: ["katrina", "sandi", "jim", "aaron", "desi"], java: ["abby", "jon", "susan"]}
-    # Your Code Here
+    fewest_programmers = programmers[programmers.keys[0]]
+    programmers.each do |language, size|
+      if size.length < fewest_programmers.length
+        fewest_programmers = language
+      end
+    end
 
     assert_equal :java, fewest_programmers
   end

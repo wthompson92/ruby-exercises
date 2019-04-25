@@ -4,6 +4,7 @@ require 'minitest/pride'
 class InjectPatternTest < Minitest::Test
 
   def test_1
+
     numbers = [28, 12, 38, 1, 91]
     # Iterate over the numbers array defined above,
     # to find the difference of all the numbers
@@ -15,13 +16,14 @@ class InjectPatternTest < Minitest::Test
   end
 
   def test_2
+
     bills = {
       rent: 800,
       car: 240,
       insurance: 110,
       medical: 1112
     }
-    # Iterate over the bills hash defined above
+    # It erate over the bills hash defined above
     # to find the difference of all the values
 
     difference = 0
@@ -32,18 +34,20 @@ class InjectPatternTest < Minitest::Test
   end
 
   def test_3
+
     numbers = [2, 3, 5, 7]
     # Iterate over the numbers array defined above
     # to find the product of all the numbers
 
     product = 1
     numbers.each do |number|
-      # Your Code Here
+      product = product * number
     end
     assert_equal 210, product
   end
 
   def test_4
+
     scrabble_score = {
       letter_total: 23,
       word_muliplier: 3,
@@ -54,20 +58,24 @@ class InjectPatternTest < Minitest::Test
 
     product = 1
     scrabble_score.each do |(key, value)|
-      # Your Code Here
+      product = product * value
+
     end
     assert_equal 138, product
   end
 
   def test_5
+
     airlines = ["Southwest", "Delta", "United", "Frontier"]
     # Iterate over the airlines array defined above to
     # create a hash with the name of the airline as the
     # key and the length of the name as the value
 
     number_of_letters = {}
-    # Your Code Here
-
+    airlines.each do |word|
+      num = word.length
+      number_of_letters[word] = num
+    end
     expected = {
       "Southwest" => 9,
       "Delta" => 5,
@@ -78,6 +86,7 @@ class InjectPatternTest < Minitest::Test
   end
 
   def test_6
+
     topping_calories = {
       pepperoni: 430,
       sausage: 400,
@@ -89,7 +98,9 @@ class InjectPatternTest < Minitest::Test
     # to create an array of all the toppings
 
     toppings = []
-    # Your Code Here
+    topping_calories.each do |key, value|
+      toppings << key.to_s
+    end
 
     assert_equal ["pepperoni", "sausage", "olives", "peppers", "onions"], toppings
   end
@@ -99,13 +110,18 @@ class InjectPatternTest < Minitest::Test
     # Iterate over the elements array defined above
     # to find the sum of all the integers
 
-    # Your Code Here
+    sum_of_second_values = 0
+
+    elements.each do |pair|
+      sum_of_second_values += pair[1]
+    end
 
     assert_equal 31, sum_of_second_values
 
   end
 
   def test_8
+
     toppings = {
       pepperoni: {
         calories: 430,
@@ -132,12 +148,16 @@ class InjectPatternTest < Minitest::Test
     # total calories. You will need to multiply each topping's
     # calorie count by the quantity
 
-    # Your Code Here
+    total_calories = 0
+     toppings.each do |topping, num|
+       total_calories += (num[:calories] * num[:quantity])
+end
 
     assert_equal 6950, total_calories
   end
 
   def test_9
+
     grades = {
       quizzes: [8, 5, 3, 6, 5],
       tests: [23, 21, 24],
@@ -149,12 +169,22 @@ class InjectPatternTest < Minitest::Test
     # calculated by averaging each category together and
     # summing all of the averages
 
-    # Your code goes here
+    final_grade = 0
+    grades.each do |subject, scores|
+      average = 0
+      scores.each do |score|
+        average += score
+      end
+      average /= scores.length.to_f
+      final_grade += average
+
+    end
 
     assert_equal 85.40, final_grade
   end
 
   def test_10
+    
     menu = {
       empanadas: {
         flavors: ["chicken", "potato", "steak", "veggie"],
