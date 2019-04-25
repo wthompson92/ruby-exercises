@@ -1,5 +1,5 @@
 require_relative "test_helper"
-require "./lib/escape_characters"
+require "../lib/escape_characters"
 
 class EscapeCharactersTest < Minitest::Test
 

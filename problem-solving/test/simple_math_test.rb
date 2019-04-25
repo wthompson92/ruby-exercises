@@ -1,5 +1,5 @@
 require_relative "test_helper"
-require "./lib/simple_math"
+require "../lib/simple_math"
 
 class SimpleMathTest < Minitest::Test
 
@@ -41,31 +41,39 @@ class SimpleMathTest < Minitest::Test
 
   def test_it_can_multiply_two_numbers
 
-    # instantiate the class
+    sm = SimpleMath.new
     #
-    # call the method being tested
-    # determine your expected result
-    #
-    # check results
+    result = sm.multiply(2,2)
+
+    expected = 4
+    assert_equal expected, result
   end
 
 
   def test_it_can_multiply_two_other_numbers
 
-    # instantiate the class
+    sm = SimpleMath.new
     #
-    # call the method being tested
-    # determine your expected result
-    #
-    # check results
+    result = sm.multiply(3,2)
+
+    expected = 6
+    assert_equal expected, result
   end
 
   def test_it_can_divide_two_numbers
-    # your code goes here
+    sm = SimpleMath.new
+    result = sm.divide(3,3)
+
+    expected = 1
+    assert_equal expected, result
   end
 
   def test_it_can_divide_two_other_numbers
-    # # your code goes here
-  end
+    sm = SimpleMath.new
+    result = sm.divide(50,10)
+
+    expected = 5
+    assert_equal expected, result
+  end 
 
 end
