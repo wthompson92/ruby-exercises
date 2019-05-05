@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/motorcycle'
+require '../lib/motorcycle'
 
 class MotorCycleTest < Minitest::Test
   def setup

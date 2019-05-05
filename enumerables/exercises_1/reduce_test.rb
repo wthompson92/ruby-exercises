@@ -15,32 +15,36 @@ class ReduceTest < Minitest::Test
   def test_subtract_list_of_numbers
     numbers = [28, 12, 38, 1, 91]
     result = numbers.reduce(0) do |difference, number|
-      # Your code goes here
+      difference - number
     end
     assert_equal -170, result
   end
 
   def test_multiply_list_of_numbers
-    skip
+
     numbers = [2, 3, 5, 7]
-    # initial value is 1
-    # Your code goes here
+    result = numbers.reduce(1) do |product, number|
+      product * number
+    end
     assert_equal 210, result
+
   end
 
   def test_capitalize_keywords_in_phrase_one_fish_two_fish_red_fish_blue_fish
     skip
     keywords = ["fish", "blue"]
-    # initial value is 'one fish two fish red fish blue fish'
-    # Your code goes here
+    initial_value  = 'one fish two fish red fish blue fish'
+    result = initial_value.reduce do |fish, blue|
+    end
     assert_equal 'one FISH two FISH red FISH BLUE FISH', result
   end
 
   def test_divide_560_by_a_bunch_of_numbers
-    skip
     numbers = [2, 2, 2, 5, 7]
-    # initial value is 560
-    # Your code goes here
+    result = numbers.reduce(560) do |quotient, number|
+      quotient / number
+    end
+
     assert_equal 2, result
   end
 

@@ -20,38 +20,54 @@ class FindPatternTest < Minitest::Test
     words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
     found = nil
     words.each do |word|
-      # Your code goes here
+      if word == "waldo"
+        found = true
+      end
     end
     assert_equal nil, found
   end
 
   def test_find_waldo
-    skip
     words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
     found = nil
-    # Your code goes here
+    words.each do |word|
+      if word == "waldo"
+        found = "waldo"
+      end
+    end
+
     assert_equal "waldo", found
   end
 
   def test_cannot_find_3_letter_words
-    skip
     words = ["piglet", "porridge", "bear", "blueberry"]
-    # Your code goes here
+    found = nil
+    words.each do |word|
+      if word.length == 3
+      found == true
+    else
+      found == nil
     assert_equal nil, found
+  end
+end
   end
 
   def test_find_13
-    skip
+
     numbers = [2, 13, 19, 8, 3, 27]
-    # Your code goes here
+    found = numbers[1]
     assert_equal 13, found
   end
 
   def test_find_first_even_number
-    skip
+
     numbers = [3, 7, 13, 11, 10, 2, 17]
-    # Your code goes here
     assert_equal 10, found
+    numbers.each do |num|
+      if num % 2 == 0
+         found = num.first
+      end
+    end
   end
 
   def test_find_first_multiple_of_3
